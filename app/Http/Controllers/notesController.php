@@ -21,7 +21,7 @@ class notesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'content' => 'string|min:4|required',
+            'content' => 'string|max:200|required',
         ]);
 
         $note = Notes::create([
