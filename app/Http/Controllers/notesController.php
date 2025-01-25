@@ -20,8 +20,15 @@ class notesController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $request->validate([
+            'content' => 'string|min:4|required',
+        ]);
 
+        $note = Notes::create([
+            'contenido' => $request->content
+        ]);
+        
+        return response()->json($note, 200);
     }
 
     /**
